@@ -1,36 +1,49 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
+import AppHeader from "./components/AppHeader.vue";
+import LoginForm from "./components/LoginForm.vue";
+import AppFooter from "./components/AppFooter.vue";
 </script>
 
 <template>
   <div class="app-layout">
-    <!-- Cabeçalho Institucional/Didático -->
     <AppHeader />
-
-    <!-- Área de Conteúdo Dinâmico (LoginView) -->
-    <div class="content-area">
-      <RouterView />
-    </div>
-
-    <!-- Rodapé -->
+    <main class="center-content">
+      <LoginForm />
+    </main>
     <AppFooter />
   </div>
 </template>
 
-<style scoped>
-.app-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+<style>
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.content-area {
-  flex: 1;
+body {
+  height: 100%;
+  background-color: #050505 !important;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Layout Principal em Flexbox Verticamente */
+.app-layout {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-height: 100vh;
+}
+
+/* Container Centralizador */
+.center-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
 }
 </style>

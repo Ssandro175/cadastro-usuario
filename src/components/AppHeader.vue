@@ -1,172 +1,72 @@
 <script setup lang="ts">
-// Componente de Cabeçalho Didático
-// Demonstração da divisão de componentes no Vue 3
 defineProps<{
-  title?: string
-  subtitle?: string
-}>()
+  title?: string;
+  subtitle?: string;
+}>();
 </script>
-
 <template>
   <header class="app-header">
-    <div class="header-container">
-      <div class="brand">
-        <!-- Ícone do Vue com acabamento moderno -->
-        <div class="logo-wrapper">
-          <svg class="vue-logo" viewBox="0 0 128 128" width="36" height="36" aria-label="Vue Logo">
-            <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z"/>
-            <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1 class="brand-title">{{ title || 'SENAC • Desenvolvimento Web' }}</h1>
-          <span class="brand-subtitle">{{ subtitle || 'Introdução ao Vue.js 3' }}</span>
-        </div>
-      </div>
-
-      <div class="header-badge-container">
-        <span class="badge">
-          <span class="badge-dot"></span>
-          Aula Inicial • Composition API
-        </span>
-      </div>
+    <div class="brand">
+      <!-- Ícone Foice e Martelo em SVG Amarelo (#f1c40f) -->
+      <svg
+        class="hammer-sickle-icon"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        fill="#f1c40f"
+      >
+        <path
+          d="M12.5 2C10.5 2 8.6 2.8 7.2 4.2C5.5 5.9 4.7 8.3 5 10.7C5.1 11.6 5.4 12.4 5.9 13.1L2.3 16.7C1.9 17.1 1.9 17.7 2.3 18.1L3.9 19.7C4.3 20.1 4.9 20.1 5.3 19.7L8.9 16.1C9.6 16.6 10.4 16.9 11.3 17C13.7 17.3 16.1 16.5 17.8 14.8C19.2 13.4 20 11.5 20 9.5C20 9 19.6 8.5 19.1 8.5C18.6 8.5 18.1 8.9 18.1 9.4C18.1 10.9 17.5 12.4 16.4 13.4C15.1 14.7 13.2 15.3 11.3 15C10.5 14.9 9.8 14.5 9.2 14L13.8 9.4C14.2 9 14.2 8.4 13.8 8L12.2 6.4C11.8 6 11.2 6 10.8 6.4L6.4 10.8C5.9 10.2 5.5 9.5 5.4 8.7C5.2 6.8 5.8 4.9 7.2 3.5C8.6 2.1 10.5 1.4 12.5 1.4C13 1.4 13.5 1 13.5 0.5C13.5 0 13 -0.1 12.5 2Z"
+        />
+        <path
+          d="M20.2 3.8L13.5 10.5L15.5 12.5L22.2 5.8C22.6 5.4 22.6 4.8 22.2 4.4L21.6 3.8C21.2 3.4 20.6 3.4 20.2 3.8Z"
+        />
+      </svg>
+      <h1>Malino Experience</h1>
     </div>
+    <span class="badge">v1.0</span>
   </header>
 </template>
 
 <style scoped>
 .app-header {
   width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--card-border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .app-header {
-    background: rgba(15, 23, 42, 0.85);
-    border-bottom: 1px solid rgba(51, 65, 85, 0.7);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.875rem 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #111111;
+  border-bottom: 2px solid #d62828;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
+  gap: 0.5rem;
 }
 
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  background: rgba(66, 184, 131, 0.12);
-  border-radius: 10px;
-  transition: transform 0.25s ease;
-}
-
-.logo-wrapper:hover {
-  transform: rotate(5deg) scale(1.05);
-}
-
-.vue-logo {
-  display: block;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text-main);
+.brand h1 {
+  font-size: 1.1rem;
+  color: #ffffff;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Courier New", Courier, monospace, sans-serif;
 }
 
-.brand-subtitle {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--primary-color);
-}
-
-.header-badge-container {
-  display: flex;
-  align-items: center;
+.hammer-sickle-icon {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  font-size: 0.775rem;
-  font-weight: 600;
-  background: rgba(66, 184, 131, 0.15);
-  color: #166534;
-  border: 1px solid rgba(66, 184, 131, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  .badge {
-    background: rgba(66, 184, 131, 0.2);
-    color: #4ade80;
-  }
-}
-
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  box-shadow: 0 0 8px var(--primary-color);
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 0.7;
-  }
-}
-
-@media (max-width: 640px) {
-  .header-container {
-    padding: 0.75rem 1rem;
-  }
-  .brand-title {
-    font-size: 0.95rem;
-  }
-  .brand-subtitle {
-    display: none;
-  }
-  .badge {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.6rem;
-  }
+  font-size: 0.75rem;
+  font-weight: bold;
+  background: #f1c40f;
+  color: #000000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  font-family: "Courier New", Courier, monospace, sans-serif;
 }
 </style>
