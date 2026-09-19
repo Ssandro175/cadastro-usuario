@@ -45,11 +45,20 @@ const fillDemoData = () => {
   errors.email = "";
   errors.password = "";
 };
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const irParaCapas = () => {
+  // Redireciona para a rota configurada
+  router.push("/capas");
+};
 </script>
 
 <template>
   <div class="login-card">
-    <h2>Saia da escravidão moderna</h2>
+    <h2>Acesse sua conta</h2>
     <p class="subtitle">Ta na hora de fazer isso certo</p>
 
     <form @submit.prevent="handleSubmit" class="form">
@@ -108,6 +117,9 @@ const fillDemoData = () => {
       <strong>Payload enviado:</strong>
       <pre><code>{{ submittedPayloadJson }}</code></pre>
     </div>
+    <button type="button" class="btn-capas" @click="irParaCapas">
+      Ver Capas de Álbuns
+    </button>
   </div>
 </template>
 
@@ -264,5 +276,27 @@ pre {
   margin: 0.5rem 0 0;
   color: #f1c40f;
   overflow-x: auto;
+}
+
+.btn-capas {
+  background: transparent;
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+  padding: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.btn-capas:hover {
+  background: #f1c40f;
+  color: #000000;
 }
 </style>

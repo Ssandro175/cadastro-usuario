@@ -22,7 +22,7 @@ defineProps<{
           d="M20.2 3.8L13.5 10.5L15.5 12.5L22.2 5.8C22.6 5.4 22.6 4.8 22.2 4.4L21.6 3.8C21.2 3.4 20.6 3.4 20.2 3.8Z"
         />
       </svg>
-      <h1>Malino Experience</h1>
+      <h1>Trap Experience</h1>
     </div>
     <span class="badge">v1.0</span>
   </header>

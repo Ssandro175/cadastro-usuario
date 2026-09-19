@@ -4,7 +4,9 @@ const currentYear = new Date().getFullYear();
 
 <template>
   <footer class="app-footer">
-    <p>&copy; {{ currentYear }} Xtranho</p>
+    <p>
+      &copy; {{ currentYear }} Todos os Direitos Reservados / RTP/Distribuidora
+    </p>
   </footer>
 </template>
 <style scoped>

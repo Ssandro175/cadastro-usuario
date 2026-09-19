@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import AppHeader from "./components/AppHeader.vue";
-import LoginForm from "./components/LoginForm.vue";
 import AppFooter from "./components/AppFooter.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
   <div class="app-layout">
     <AppHeader />
     <main class="center-content">
-      <LoginForm />
+      <RouterView />
     </main>
     <AppFooter />
   </div>
